@@ -1,25 +1,31 @@
 {% extends "diary/base.html" %}
 {% block content %}
 <h2>Твои записи</h2>
-<a href="{% url 'add_entry' %}">+ Добавить запись</a>
+<a class="btn" href="{% url 'add_entry' %}">+ Добавить запись</a>
 
-<form method="get">
+<form method="get" class="filter-form">
     <input type="text" name="q" placeholder="Поиск..." value="{{ query }}">
     <select name="category">
         <option value="">Все категории</option>
         {% for cat in categories %}
             <option value="{{ cat.name }}" {% if category_filter == cat.name %}selected{% endif %}>
-                {{ cat.get_name_display }}
+                {{ cat.name }}
             </option>
         {% endfor %}
     </select>
-    <label><input type="checkbox" name="archived" value="1" {% if show_archived %}checked{% endif %}> Архив</label>
-    <button type="submit">Фильтровать</button>
+    <label>
+        <input type="checkbox" name="archived" value="1" {% if show_archived %}checked{% endif %}>
+        Архив
+    </label>
+    <button type="submit" class="btn">Фильтровать</button>
 </form>
 
-<ul>
+<ul class="entry-list">
 {% for entry in entries %}
-    <li><strong>{{ entry.title }}</strong> — {{ entry.category }}<br>{{ entry.get_content }}</li>
+    <li>
+        <strong>{{ entry.title }}</strong> — {{ entry.category }}<br>
+        {{ entry.get_content }}
+    </li>
 {% empty %}
     <li>Нет записей</li>
 {% endfor %}

@@ -10,9 +10,9 @@ router.register(r'api/entries', DiaryEntryViewSet, basename='entry')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', diary_views.index, name='index'),
-    path('add/', diary_views.add_entry, name='add_entry'),
-    path('register/', diary_views.register, name='register'),
+    path('', diary_views.index_view, name='index'),
+    path('add/', diary_views.add_entry_view, name='add_entry'),
+    path('register/', diary_views.register_view, name='register'),
     path('login/', auth_views.LoginView.as_view(template_name='diary/login.html'), name='login'),
     path('logout/', auth_views.LogoutView.as_view(), name='logout'),
 ] + router.urls

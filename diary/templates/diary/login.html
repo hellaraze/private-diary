@@ -1,9 +1,11 @@
 {% extends "diary/base.html" %}
 {% block content %}
-<h2>Вход</h2>
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Войти</button>
-</form>
+<div class="form-container">
+    <h2 class="form-title">Вход</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn">Войти</button>
+    </form>
+</div>
 {% endblock %}
