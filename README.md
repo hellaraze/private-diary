@@ -1,21 +1,40 @@
-# Django Diary Website
+# 📝 Private Diary
 
+Персональный веб-дневник, разработанный на Django.  
+Позволяет пользователю вести личные записи, фильтровать их по дате, редактировать и удалять. Сайт адаптирован для комфортной работы с ПК и мобильных устройств.
 
-## Description
+---
 
- In this website the user can log in to create their personal diary. An entry has a title, a text and a date when it was posted.
- After creating one the user can then edit or remove it. The entries are sorted in the most recently created order and the user can use the search bar to filter them. The website has an authentication system which assures that the user will see only his diary. In the profile page one could change their username, email and their profile picture. This page has been added for future development of the website.
+## 🚀 Функционал
 
-## Deployment
+- Регистрация и авторизация пользователей
+- Создание, редактирование и удаление записей
+- Поддержка Markdown для форматирования текста
+- Фильтрация записей по дате публикации
+- Личный профиль с возможностью смены аватара
+- Защита пользовательских данных — каждый видит только свои записи
+- Подключена социальная авторизация (Google и др.)
 
-The website has not been deployed to the internet yet.
+---
 
+## 🧠 Используемые технологии
 
-## Built With
+- **Backend:** Django 5.2, Django REST Framework
+- **Frontend:** Bootstrap 4, HTML5, CSS3
+- **Аутентификация:** Django Auth + social-auth
+- **База данных:** SQLite (можно легко заменить на PostgreSQL/MySQL)
+- **Другое:** crispy-forms, django-filter
 
-* Django - The web framework used which uses Python
-* Bootstrap - the main designing framework used along CSS
-* SQLite - the default Database used with Django
-* django_filters - used for the search functionality
+---
 
+## 📦 Установка (локально)
 
+```bash
+git clone https://github.com/hellaraze/private-diary.git
+cd private-diary
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+python manage.py migrate
+python manage.py createsuperuser
+python manage.py runserver# dyary0django
